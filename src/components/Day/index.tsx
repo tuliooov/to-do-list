@@ -12,7 +12,7 @@ interface DayProps {
 }
 export const Day = ({ day }: DayProps) => {
     const tasksChecked = day.tasks.filter(task=>task.checked)
-    const messageTooltip = `${day.date} - ${tasksChecked.length}/${day.tasks.length} tasks`
+    const messageTooltip = `${day.date} - ${tasksChecked.length}/${day.tasks.length} tarefas`
     return (
     <Tooltip title={messageTooltip}>
         <div className={styles.day} style={{
