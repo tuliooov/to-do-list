@@ -1,0 +1,11 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume .weeks {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}

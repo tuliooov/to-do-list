@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/Ignite-ReactJS-Desafio-01-Praticando-os-conceitos-do-ReactJS',
-  // server: {
-  //   port: 3000,
-  //   host: true
-  // }
+  server: {
+    port: 8080,
+    host: true
+  }
 })

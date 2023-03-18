@@ -1,0 +1,10 @@
+.subtitle {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.subtitle .day {
+  height: 25px;
+  width: 25px;
+  background-color: var(--purple);
+}

@@ -1,20 +1,16 @@
+import { ITask } from '../App';
 import styles from './Task.module.css';
 
-interface Task {
-  id: string;
-  checked: boolean;
-  text: string;
-}
 
 interface TaskProps {
-  task: Task,
-  checkedTask: (id: string) => void;
+  task: ITask,
+  checkedTask: (id: string, checked: boolean) => void;
   deleteTask: (id: string) => void;
 }
 
 export function Task({ task, checkedTask, deleteTask }: TaskProps) {
   function handleCheckTask() {
-    checkedTask(task.id);
+    checkedTask(task.id, !task.checked);
   }
 
   function handleDeleteTask() {
@@ -38,7 +34,7 @@ export function Task({ task, checkedTask, deleteTask }: TaskProps) {
       </button>
 
       <p className={ task.checked ? styles.text_checked : styles.text_unchecked }>
-        {task.text}
+        {task.title}
       </p>
 
       <button 

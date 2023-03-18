@@ -1,5 +1,6 @@
 .main {
   max-width: 736px;
   margin: 0 auto;
+  margin-bottom: 2rem;
   padding-inline: 1rem;
 }

@@ -1,16 +1,11 @@
+import { ITask } from '../App';
 import { Task } from './Task';
 
 import  styles from './Tasks.module.css';
 
-interface Task {
-  id: string;
-  checked: boolean;
-  text: string;
-}
-
 interface TasksProps {
-  tasks: Task[],
-  checkedTask: (id: string) => void;
+  tasks: ITask[],
+  checkedTask: (id: string, checked: boolean) => void;
   deleteTask: (id: string) => void;
 }
 

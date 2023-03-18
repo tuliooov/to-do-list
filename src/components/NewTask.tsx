@@ -5,7 +5,7 @@ import styles from './NewTask.module.css';
 import plusIcon from '../assets/plus.svg';
 
 interface NewTaskProps {
-  createTask: (text: string) => void;
+  createTask: (text: string) => Promise<void>
 }
 
 export function NewTask({ createTask }: NewTaskProps) {
