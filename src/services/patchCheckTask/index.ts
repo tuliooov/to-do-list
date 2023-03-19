@@ -1,6 +1,6 @@
 import { BASE_URL } from '../config';
 import axios, { AxiosResponse } from "axios";
-import { ITask } from "../../App";
+import { ITask } from '../../pages/App';
 
 interface INewTask {
     id: string;

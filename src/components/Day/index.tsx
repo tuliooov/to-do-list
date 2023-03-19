@@ -1,4 +1,4 @@
-import { ITask } from '../../App';
+import { ITask } from '../../pages/App';
 import { getOpacity } from '../../utils';
 import { Tooltip } from '../Tooltip';
 import  styles from './Day.module.css';

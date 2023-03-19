@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import './global.css';
+import '../../global.css';
 import styles from './App.module.css';
-import { Header } from './components/Header';
-import { NewTask } from './components/NewTask';
-import { Tasks } from './components/Tasks';
-import { postCreateTask } from './services/postCreateTask';
-import { getTasks } from './services/getTasks';
-import { patchDoneTask } from './services/patchCheckTask';
-import { deleteRemoveTask } from './services/deleteRemoveTask';
-import { Resume } from './components/Resume';
+import { Header } from '../../components/Header';
+import { NewTask } from '../../components/NewTask';
+import { Tasks } from '../../components/Tasks';
+import { postCreateTask } from '../../services/postCreateTask';
+import { getTasks } from '../../services/getTasks';
+import { patchDoneTask } from '../../services/patchCheckTask';
+import { deleteRemoveTask } from '../../services/deleteRemoveTask';
+import { Resume } from '../../components/Resume';
 
 export interface ITask {
   id: string
@@ -100,7 +100,6 @@ export function App() {
 
   return (
     <div>
-      <Header />
       <main className={styles.main}>
         <NewTask createTask={createTask} />
 

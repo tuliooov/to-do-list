@@ -1,4 +1,4 @@
-import { ITask } from '../../App';
+import { ITask } from '../../pages/App';
 import { Day } from '../Day';
 import  styles from './Week.module.css';
 

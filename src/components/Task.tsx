@@ -1,4 +1,4 @@
-import { ITask } from '../App';
+import { ITask } from '../pages/App';
 import styles from './Task.module.css';
 
 

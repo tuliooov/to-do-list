@@ -1,9 +1,8 @@
-import { ITask } from '../../App';
 import  styles from './Resume.module.css';
 import { subDays } from 'date-fns';
 import { Week } from '../Week';
-import { getRandomInt } from '../../utils';
 import { Subtitle } from '../Subtitle';
+import { ITask } from '../../pages/App';
 
 interface ResumeProps {
     tasks: ITask[]
@@ -28,7 +27,6 @@ export const Resume = ({ tasks }: ResumeProps) => {
                     date: subDate.toLocaleDateString(),
                     time: subDate.getTime(),
                     tasks: getTasksOfTheDay(subDate)
-                    // tasks: [...Array(getRandomInt(1, 15)).keys()]
                 });
             }).reverse()
         });
