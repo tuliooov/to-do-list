@@ -106,6 +106,8 @@ export function App() {
     fetchTasks()
   }, [])
 
+  const tasksFilterd = tasks.filter((task) => new Date(task.createdAt).toLocaleDateString() === new Date().toLocaleDateString())
+
   return (
     <div>
       <main className={styles.main}>
@@ -120,7 +122,7 @@ export function App() {
         {
           responseType.status === EResponseType.SUCCESS && (
             <>
-              <Tasks tasks={tasks} doneTask={doneTask} deleteTask={deleteTask}/>
+              <Tasks tasks={tasksFilterd} doneTask={doneTask} deleteTask={deleteTask}/>
               <Resume tasks={tasks} />
             </>
           )
