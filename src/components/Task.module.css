@@ -18,16 +18,16 @@
   border-color: var(--gray-400);
 }
 
-.task_ddone {
+.task_done {
   border-color: var(--gray-500);
 }
 
-.text_unddone {
+.text_undone {
   font-size: .875rem;
   color: var(--gray-100);
 }
 
-.text_ddone {
+.text_done {
   font-size: .875rem;
   color: var(--gray-300);
   text-decoration: line-through;
@@ -50,19 +50,19 @@
   width: .7rem;
 }
 
-.radio_unddone {
+.radio_undone {
   background: none;
  
   width: 1.125rem;
   height: 1.125rem;
-           
+
   border: 2px solid var(--blue);
   border-radius: 50%;
   
   position: relative;
 }
 
-.radio_unddone:before {
+.radio_undone:before {
   content: '';
   background: var(--blue-dark);
   opacity: .2;
@@ -75,15 +75,15 @@
   border-radius: 50%;
 }
 
-.radio_unddone:hover {
+.radio_undone:hover {
   border-color: var(--blue-dark);
 }
 
-.radio_unddone:hover::before {
+.radio_undone:hover::before {
   display: block;
 }
 
-.radio_ddone {
+.radio_done {
   width: 1.125rem;
   height: 1.125rem;
   border-radius: 50%;
@@ -94,7 +94,7 @@
   justify-content: center;
 }
 
-.radio_ddone:hover {
+.radio_done:hover {
   background: var(--purple);
 }
 
