@@ -9,6 +9,7 @@ import { getTasks } from '../../services/getTasks';
 import { patchDoneTask } from '../../services/patchCheckTask';
 import { deleteRemoveTask } from '../../services/deleteRemoveTask';
 import { Resume } from '../../components/Resume';
+import { useUserContext } from '../../contexts/UserProvider';
 
 export interface ITask {
   id: string
@@ -33,18 +34,22 @@ export interface IResponseType {
 }
 
 export function App() {
+  const { user } = useUserContext()
+
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [responseType, setResponseType] = useState<IResponseType>({
     status: EResponseType.LOADING
   })
 
   const createTask = async (title: string) => {
-    const newTask = {
-      title: title,
-      description: ''
+    if(user?.uid){
+      const newTask = {
+        title: title,
+        description: ''
+      }
+      const response = await postCreateTask(newTask, user.uid)
+      setTasks((state) => [...state, response.data]);
     }
-    const response = await postCreateTask(newTask)
-    setTasks((state) => [...state, response.data]);
   }
 
    const doneTask = async (id: string, done: boolean) => {
@@ -80,18 +85,21 @@ export function App() {
 
 
   const fetchTasks = async () => {
-    try {
-      const response = await getTasks()
-      setTasks(response.data)
-      setResponseType({
-        status: EResponseType.SUCCESS
-      })
-    } catch (error) {
-      setResponseType({
-        status: EResponseType.FAILED,
-        message: `${JSON.stringify(error)}`
-      })
+    if(user){
+      try {
+        const response = await getTasks(user.uid)
+        setTasks(response.data)
+        setResponseType({
+          status: EResponseType.SUCCESS
+        })
+      } catch (error) {
+        setResponseType({
+          status: EResponseType.FAILED,
+          message: `${JSON.stringify(error)}`
+        })
+      }
     }
+    
   }
 
   useEffect(() => {

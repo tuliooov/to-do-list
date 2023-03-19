@@ -7,6 +7,10 @@ interface INewTask {
     description: string;
 }
 
-export const postCreateTask = (data: INewTask): Promise<AxiosResponse<ITask>> => {
-    return axios.post(`${BASE_URL}/api/tasks/create`, data)
+export const postCreateTask = (data: INewTask, useruid: string): Promise<AxiosResponse<ITask>> => {
+    return axios.post(`${BASE_URL}/api/tasks/create`, data, {
+        headers: {
+            useruid: useruid
+        }
+    })
 }
