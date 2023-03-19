@@ -4,13 +4,13 @@ import styles from './Task.module.css';
 
 interface TaskProps {
   task: ITask,
-  checkedTask: (id: string, checked: boolean) => void;
+  doneTask: (id: string, done: boolean) => void;
   deleteTask: (id: string) => void;
 }
 
-export function Task({ task, checkedTask, deleteTask }: TaskProps) {
-  function handleCheckTask() {
-    checkedTask(task.id, !task.checked);
+export function Task({ task, doneTask, deleteTask }: TaskProps) {
+  function handleDoneTask() {
+    doneTask(task.id, !task.done);
   }
 
   function handleDeleteTask() {
@@ -18,14 +18,14 @@ export function Task({ task, checkedTask, deleteTask }: TaskProps) {
   }
 
   return (
-    <div className={`${styles.task} ${task.checked ? styles.task_checked : styles.task_unchecked}`}>
+    <div className={`${styles.task} ${task.done ? styles.task_done : styles.task_undone}`}>
       <button 
         className={styles.checkbox}
-        onClick={handleCheckTask}
+        onClick={handleDoneTask}
       >
-        <div className={ task.checked ? styles.radio_checked : styles.radio_unchecked }>
+        <div className={ task.done ? styles.radio_done : styles.radio_undone }>
           {
-            task.checked &&
+            task.done &&
             <svg viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.43107 0.342093L4.09914 4.67403L1.61667 2.19156L0.780762 3.02747L4.09914 6.34584L9.26698 1.178L8.43107 0.342093Z" fill="#F2F2F2"/>
             </svg>  
@@ -33,7 +33,7 @@ export function Task({ task, checkedTask, deleteTask }: TaskProps) {
         </div>  
       </button>
 
-      <p className={ task.checked ? styles.text_checked : styles.text_unchecked }>
+      <p className={ task.done ? styles.text_done : styles.text_undone }>
         {task.title}
       </p>
 

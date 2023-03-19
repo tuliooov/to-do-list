@@ -6,7 +6,7 @@ import { NewTask } from './components/NewTask';
 import { Tasks } from './components/Tasks';
 import { postCreateTask } from './services/postCreateTask';
 import { getTasks } from './services/getTasks';
-import { patchCheckTask } from './services/patchCheckTask';
+import { patchDoneTask } from './services/patchCheckTask';
 import { deleteRemoveTask } from './services/deleteRemoveTask';
 import { Resume } from './components/Resume';
 
@@ -15,7 +15,7 @@ export interface ITask {
   title: string
   description: string
   createdAt: string
-  checked: boolean
+  done: boolean
 }
 
 
@@ -47,17 +47,17 @@ export function App() {
     setTasks((state) => [...state, response.data]);
   }
 
-   const checkedTask = async (id: string, checked: boolean) => {
+   const doneTask = async (id: string, done: boolean) => {
     try {
-      patchCheckTask({
+      patchDoneTask({
         id,
-        checked
+        done
       })
       const updatedTasks = tasks.map(task => {
         if(task.id === id) {
           return {
             ...task,
-            checked
+            done
           }
         } else {
           return task;
@@ -113,7 +113,7 @@ export function App() {
         {
           responseType.status === EResponseType.SUCCESS && (
             <>
-              <Tasks tasks={tasks} checkedTask={checkedTask} deleteTask={deleteTask}/>
+              <Tasks tasks={tasks} doneTask={doneTask} deleteTask={deleteTask}/>
               <Resume tasks={tasks} />
             </>
           )

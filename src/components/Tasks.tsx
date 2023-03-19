@@ -5,15 +5,15 @@ import  styles from './Tasks.module.css';
 
 interface TasksProps {
   tasks: ITask[],
-  checkedTask: (id: string, checked: boolean) => void;
+  doneTask: (id: string, done: boolean) => void;
   deleteTask: (id: string) => void;
 }
 
-export function Tasks({ tasks, checkedTask, deleteTask }: TasksProps) {
+export function Tasks({ tasks, doneTask, deleteTask }: TasksProps) {
   const createdTasks = tasks.length;
 
   const tasksCompleted = tasks.reduce((acc, task) => {
-    if(task.checked) {
+    if(task.done) {
       return acc + 1
     }
     return acc;
@@ -38,7 +38,7 @@ export function Tasks({ tasks, checkedTask, deleteTask }: TasksProps) {
             <Task 
               key={task.id} 
               task={task} 
-              checkedTask={checkedTask}
+              doneTask={doneTask}
               deleteTask={deleteTask}
             />
           ))

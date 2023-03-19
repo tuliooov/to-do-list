@@ -4,9 +4,9 @@ import { ITask } from "../../App";
 
 interface INewTask {
     id: string;
-    checked: boolean;
+    done: boolean;
 }
 
-export const patchCheckTask = (data: INewTask): Promise<AxiosResponse<ITask>> => {
-    return axios.patch(`${BASE_URL}/api/tasks/check`, data)
+export const patchDoneTask = (data: INewTask): Promise<AxiosResponse<ITask>> => {
+    return axios.patch(`${BASE_URL}/api/tasks/done`, data)
 }
