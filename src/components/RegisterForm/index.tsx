@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './RegisterForm.module.css';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../lib/firebase'
 import { IUser, useUserContext } from '../../contexts/UserProvider';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,11 +17,27 @@ export function RegisterForm({  }: NewTaskProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  function handleUpdateUser() {
+      if(auth.currentUser && user){
+        updateProfile(auth.currentUser, {
+          displayName: name
+        }).then(() => {
+          handleChangeUser({...user, displayName: name})
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(`${errorCode} - ${errorMessage}`)
+        });
+      }
+  }
+
   function handleRegister() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user as IUser
         handleChangeUser(user)
+        handleUpdateUser()
         setName('');
         setEmail('');
         setPassword('');
@@ -58,6 +74,7 @@ export function RegisterForm({  }: NewTaskProps) {
           value={password}
           required
           onChange={(event) => setPassword(event.target.value)} 
+          type="password"
         />
         <button
           type='submit'

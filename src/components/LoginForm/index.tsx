@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IUser, useUserContext } from '../../contexts/UserProvider';
 import { auth } from '../../lib/firebase';
@@ -43,6 +43,7 @@ export function LoginForm({  }: NewTaskProps) {
           value={email}
           required
           onChange={(event) => setEmail(event.target.value)} 
+          type="email"
         />
         <input 
           className={styles.input}
@@ -50,6 +51,7 @@ export function LoginForm({  }: NewTaskProps) {
           value={password}
           required
           onChange={(event) => setPassword(event.target.value)} 
+          type="password"
         />
         <button
           type='submit'
