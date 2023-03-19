@@ -11,7 +11,7 @@ export function Router() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path={'/login'} element={<Login />} />
         <Route path={'/register'} element={<Register />} />
-        <Route path={'*'} element={
+        <Route path={'/'} element={
           <ProtectedRoute>
             <App />
           </ProtectedRoute>} 
