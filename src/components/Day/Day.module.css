@@ -1,7 +1,15 @@
 .day {
+  all: unset;
   height: 25px;
   width: 25px;
   background-color: var(--purple);
+  color: var(--gray-200);
+  align-items: center;
+  text-align: center;
+}
+
+.day:hover {
+  filter: brightness(0.8)
 }
 
 .tooltip {

@@ -3,12 +3,26 @@ import { subDays, differenceInWeeks } from 'date-fns';
 import { Week } from '../Week';
 import { Subtitle } from '../Subtitle';
 import { ITask } from '../../pages/App';
+import { DialogDayResume } from '../DialogDayResume';
+import { useState } from 'react';
 
 interface ResumeProps {
     tasks: ITask[]
 }
 
 export const Resume = ({ tasks }: ResumeProps) => {
+
+    const [selectedTasksResume, setSelectedTasksResume] = useState<ITask[]>()
+
+    const handleSelectTasksResume = (selecteds?: ITask[]) => () => {
+        if(selecteds?.length){
+            setSelectedTasksResume(selecteds)
+        }
+    }
+
+    const onCloseResumeTasks = () => {
+        setSelectedTasksResume(undefined)
+    }
 
     if(tasks.length === 0){
         return null
@@ -51,11 +65,12 @@ export const Resume = ({ tasks }: ResumeProps) => {
             <div className={styles.weeks}>
                 {
                     arrayDays.map((week) => (
-                        <Week week={week} />
+                        <Week key={week.week} week={week} handleSelectTasksResume={handleSelectTasksResume} />
                     ))
                 }
             </div>
 
+            <DialogDayResume tasks={selectedTasksResume} onClose={onCloseResumeTasks}/>
             <Subtitle />
         </div>
     )

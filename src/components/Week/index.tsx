@@ -12,14 +12,15 @@ interface WeekProps {
             tasks: ITask[];
         }[];
     }
+    handleSelectTasksResume: (selecteds?: ITask[]) => () => void
 }
 
-export const Week = ({ week }: WeekProps) => {
+export const Week = ({ week, handleSelectTasksResume }: WeekProps) => {
     return (
         <div className={styles.week}>
             {
                 week.days.map((day) => (
-                    <Day day={day} />
+                    <Day key={day.time} day={day} handleSelectTasksResume={handleSelectTasksResume} />
                 ))
             } 
         </div>

@@ -1,0 +1,47 @@
+.ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.li {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio_undone {
+  background: none;
+ 
+  width: 1.125rem;
+  height: 1.125rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  
+  position: relative;
+}
+
+.radio_undone:before {
+  content: '';
+  background: var(--blue-dark);
+  opacity: .2;
+ 
+  display: none;
+  position: absolute;
+
+  width: .90rem;
+  height: .90rem;
+  border-radius: 50%;
+}
+
+.radio_done {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+
+  background: var(--purple-dark);
+
+  display: flex;
+  justify-content: center;
+}

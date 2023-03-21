@@ -14,8 +14,10 @@ export function NewTask({ createTask, isLoading }: NewTaskProps) {
 
   function handleCreateTask() {
     event?.preventDefault()
-    createTask(text);
-    setText('');
+    if(text){
+      createTask(text);
+      setText('');
+    }
   }
 
   return (
@@ -28,7 +30,6 @@ export function NewTask({ createTask, isLoading }: NewTaskProps) {
       />
 
       <Button loading={isLoading} />
-      
     </form>
   );
 }
