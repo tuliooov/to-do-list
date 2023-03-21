@@ -1,0 +1,36 @@
+.button {
+  color: var(--gray-100);
+  background: var(--blue-dark);
+  border: none;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  cursor: pointer;
+
+  transition: background .1s;
+
+  justify-content: center;
+}
+
+.button div {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.button span {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.button span img {
+  width: 1rem;
+}
+
+.button:hover {
+  background: var(--blue);
+}

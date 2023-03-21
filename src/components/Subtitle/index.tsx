@@ -5,9 +5,6 @@ import  styles from './Subtitle.module.css';
 
 
 export const Subtitle = () => {
-
-    const messageTooltip = `asda`
-
     return (
         <div className={styles.subtitle}>
             <Tooltip title={`0 tarefa concluída`}>

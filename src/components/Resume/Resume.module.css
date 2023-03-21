@@ -9,3 +9,21 @@
   flex-direction: row;
   gap: 0.25rem;
 }
+
+.resume .created strong {
+  color: var(--blue);
+  font-size: 0.875rem;
+}
+
+
+@media (max-width: 1024px) {
+  .resume .weeks {
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 850px) {
+  .resume .weeks {
+    overflow-y: scroll;
+  }
+}

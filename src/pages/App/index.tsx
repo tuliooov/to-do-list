@@ -36,12 +36,14 @@ export interface IResponseType {
 export function App() {
   const { user } = useUserContext()
 
+  const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [responseType, setResponseType] = useState<IResponseType>({
     status: EResponseType.LOADING
   })
 
   const createTask = async (title: string) => {
+    setIsLoading(true)
     if(user?.uid){
       const newTask = {
         title: title,
@@ -50,6 +52,7 @@ export function App() {
       const response = await postCreateTask(newTask, user.uid)
       setTasks((state) => [...state, response.data]);
     }
+    setIsLoading(false)
   }
 
    const doneTask = async (id: string, done: boolean) => {
@@ -111,7 +114,7 @@ export function App() {
   return (
     <div>
       <main className={styles.main}>
-        <NewTask createTask={createTask} />
+        <NewTask createTask={createTask} isLoading={isLoading} />
 
         {
           responseType.status === EResponseType.LOADING && (

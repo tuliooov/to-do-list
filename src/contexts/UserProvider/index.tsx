@@ -10,13 +10,8 @@ export interface IUser extends User {
 
 const UserContext = createContext({} as {
     user?: IUser
-    handleChangeUser: (newUser: IUser) => void
-    getAccessToken: () => string
+    handleChangeUser: (newUser?: IUser) => void
 })
-
-export const LOCAL_STORAGE_KEY_ACCESS_TOKEN = "@toDo:accessToken"
-export const LOCAL_STORAGE_KEY_UID = "@toDo:uid"
-export const LOCAL_STORAGE_KEY_REFRESH_TOKEN = "@toDo:refreshToken"
 
 const UserProvider = ({
   children,
@@ -26,22 +21,14 @@ const UserProvider = ({
     const [user, setUser] = useState<IUser>()
 
     console.log("🚀 ~ file: index.tsx:15 ~ user:", user)
-    const handleChangeUser = (newUser: IUser) => {
-      if(newUser){
-        localStorage.setItem(LOCAL_STORAGE_KEY_ACCESS_TOKEN, newUser.accessToken)
-        localStorage.setItem(LOCAL_STORAGE_KEY_UID, newUser.uid)
-        localStorage.setItem(LOCAL_STORAGE_KEY_REFRESH_TOKEN, newUser.stsTokenManager.refreshToken)
-        setUser(newUser)
-      }
+    const handleChangeUser = (newUser?: IUser) => {
+      setUser(newUser)
     }
 
-    const getAccessToken = () => {
-      return localStorage.getItem(LOCAL_STORAGE_KEY_ACCESS_TOKEN) || ''
-    }
 
     return (
         <UserContext.Provider value={{
-            user, handleChangeUser, getAccessToken
+            user, handleChangeUser, 
         }}>
             {children}
         </UserContext.Provider>

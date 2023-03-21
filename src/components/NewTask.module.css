@@ -20,28 +20,3 @@
 .input:focus {
   border-color: var(--purple-dark);
 }
-
-.button {
-  color: var(--gray-100);
-  background: var(--blue-dark);
-  border: none;
-  font-size: 0.875rem;
-  font-weight: bold;
-  border-radius: 8px;
-  
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: 1rem;
-  cursor: pointer;
-
-  transition: background .1s;
-}
-
-.button img {
-  width: 1rem;
-}
-
-.button:hover {
-  background: var(--blue);
-}

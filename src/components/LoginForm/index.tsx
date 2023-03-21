@@ -12,7 +12,7 @@ interface NewTaskProps {
 }
 
 export function LoginForm({  }: NewTaskProps) {
-  const { handleChangeUser, user} = useUserContext()
+  const { handleChangeUser} = useUserContext()
   const navigate = useNavigate();
   
   const [email, setEmail] = useState('');
