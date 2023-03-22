@@ -1,0 +1,26 @@
+[
+    {
+        "version": "1.1.0",
+        "adds": [
+            "Resumo do dias anteriores",
+            "Tooltips",
+            "Botão com loading",
+            "Histórico de versões"
+        ],
+        "changes": [
+            "Opção de deslogar",
+            "Responsividade de histórico"
+        ]
+    },
+    {
+        "version": "1.0.0",
+        "adds": [
+            "Funcionalidades de histórico",
+            "Funcionalidades de tarefas",
+            "Funcionalidades de conectar",
+            "Funcionalidades de registrar",
+            "Projeto criado"
+        ],
+        "changes": []
+    }
+]

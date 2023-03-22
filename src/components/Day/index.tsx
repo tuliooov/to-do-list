@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ITask } from '../../pages/App';
 import { getOpacity } from '../../utils';
 import { Tooltip } from '../Tooltip';
@@ -11,7 +12,7 @@ interface DayProps {
     }
     handleSelectTasksResume: (selecteds?: ITask[]) => () => void
 }
-export const Day = ({ day, handleSelectTasksResume }: DayProps) => {
+export const Day = memo(({ day, handleSelectTasksResume }: DayProps) => {
     const tasksDone = day.tasks.filter(task=>task.done)
     const messageTooltip = `${day.date} - ${tasksDone.length}/${day.tasks.length} tarefas`
     return (
@@ -28,4 +29,4 @@ export const Day = ({ day, handleSelectTasksResume }: DayProps) => {
         </button>
     </Tooltip>
     )
-}
+})

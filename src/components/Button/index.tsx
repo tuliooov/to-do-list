@@ -1,11 +1,11 @@
 import styles from './Button.module.css';
-import plusIcon from '../../assets/plus.svg';
 import { Loading } from '../Loading';
 
 interface ButtonProps {
   loading?: boolean
+  children: React.ReactNode
 }
-export function Button({loading}: ButtonProps) {
+export function Button({loading, children}: ButtonProps) {
   return (
     <button
       className={styles.button}
@@ -15,8 +15,7 @@ export function Button({loading}: ButtonProps) {
           <Loading />
         </div>
         <span style={loading ? { opacity: 0 } : {}}>
-          Criar
-          <img src={plusIcon} alt="Mais" />
+          {children}
         </span>
     </button>
   ); 

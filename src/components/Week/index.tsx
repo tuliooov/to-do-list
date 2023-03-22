@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ITask } from '../../pages/App';
 import { Day } from '../Day';
 import  styles from './Week.module.css';
@@ -15,7 +16,7 @@ interface WeekProps {
     handleSelectTasksResume: (selecteds?: ITask[]) => () => void
 }
 
-export const Week = ({ week, handleSelectTasksResume }: WeekProps) => {
+export const Week = memo(({ week, handleSelectTasksResume }: WeekProps) => {
     return (
         <div className={styles.week}>
             {
@@ -25,4 +26,4 @@ export const Week = ({ week, handleSelectTasksResume }: WeekProps) => {
             } 
         </div>
     )
-}
+})

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Button } from './Button';
-
 import styles from './NewTask.module.css';
-
+import plusIcon from '../assets/plus.svg';
 
 interface NewTaskProps {
   createTask: (text: string) => Promise<void>
@@ -29,7 +28,10 @@ export function NewTask({ createTask, isLoading }: NewTaskProps) {
         onChange={(event) => setText(event.target.value)} 
       />
 
-      <Button loading={isLoading} />
+      <Button loading={isLoading} >
+        Criar
+        <img src={plusIcon} alt={'Mais'} />
+      </Button>
     </form>
   );
 }
