@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import '../../global.css';
 import styles from './App.module.css';
 import { Header } from '../../components/Header';
@@ -109,7 +109,7 @@ export function App() {
     fetchTasks()
   }, [])
 
-  const tasksFilterd = tasks.filter((task) => new Date(task.createdAt).toLocaleDateString() === new Date().toLocaleDateString())
+  const tasksFilterd = useMemo(() => tasks.filter((task) => new Date(task.createdAt).toLocaleDateString() === new Date().toLocaleDateString()), [tasks])
 
   return (
     <div>

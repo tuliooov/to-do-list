@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { ITask } from '../pages/App';
 import { Task } from './Task';
 
@@ -12,12 +13,12 @@ interface TasksProps {
 export function Tasks({ tasks, doneTask, deleteTask }: TasksProps) {
   const createdTasks = tasks.length;
 
-  const tasksCompleted = tasks.reduce((acc, task) => {
+  const tasksCompleted = useMemo(() => tasks.reduce((acc, task) => {
     if(task.done) {
       return acc + 1
     }
     return acc;
-  }, 0);
+  }, 0), [tasks])
 
   return (
     <div className={styles.tasks}>

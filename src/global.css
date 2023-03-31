@@ -39,3 +39,72 @@ body, input, button {
     font-size: 87.5%;
   }
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left; 
+  padding: 0.5rem;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100% !important;
+}
+
+
+
+@media only screen and (min-width: 800px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%!important;}
+  .col-2 {width: 16.66%!important;}
+  .col-3 {width: 25%!important;}
+  .col-4 {width: 33.33%!important;}
+  .col-5 {width: 41.66%!important;}
+  .col-6 {width: 50%!important;}
+  .col-7 {width: 58.33%!important;}
+  .col-8 {width: 66.66%!important;}
+  .col-9 {width: 75%!important;}
+  .col-10 {width: 83.33%!important;}
+  .col-11 {width: 91.66%!important;}
+  .col-12 {width: 100%!important;}
+  .w-full { 
+    width: 100%;
+  }
+  .layout {
+    max-width: 70rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%!important;}
+  .col-s-2 {width: 16.66%!important;}
+  .col-s-3 {width: 25%!important;}
+  .col-s-4 {width: 33.33%!important;}
+  .col-s-5 {width: 41.66%!important;}
+  .col-s-6 {width: 50%!important;}
+  .col-s-7 {width: 58.33%!important;}
+  .col-s-8 {width: 66.66%!important;}
+  .col-s-9 {width: 75%!important;}
+  .col-s-10 {width: 83.33%!important;}
+  .col-s-11 {width: 91.66%!important;}
+  .col-s-12 {width: 100%!important;}
+  .s-w-full { 
+    width: 100%;
+  }
+  .layout {
+    max-width: 90%;
+  }
+}
+
+

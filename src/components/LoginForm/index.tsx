@@ -44,26 +44,35 @@ export function LoginForm({  }: NewTaskProps) {
   return (
     <form onSubmit={handleLogin}>
       <div className={styles.main}>
-        <div className={styles.wrapper}>
-          <input 
-            className={styles.input}
-            placeholder="Email"
-            value={email}
-            required
-            onChange={(event) => setEmail(event.target.value)} 
-            type="email"
-          />
-          <input 
-            className={styles.input}
-            placeholder="Senha"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)} 
-            type="password"
-          />
-          <Button loading={isLoading}>
-            Logar
-          </Button>
+        <div className={`${styles.wrapper} row`}>
+          <div className='col-4 col-s-12'>
+            <input 
+              className={`${styles.input}`}
+              placeholder="Email"
+              value={email}
+              required
+              onChange={(event) => setEmail(event.target.value)} 
+              type="email"
+            />
+          </div>
+          <div className='col-4 col-s-12'>
+            <input 
+              className={`${styles.input}`}
+              placeholder="Senha"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)} 
+              type="password"
+            />
+          </div>
+          <div className='col-4 col-s-12'>
+            <Button 
+              loading={isLoading}
+              className={`w-full s-w-full`}
+            >
+              Logar
+            </Button>
+          </div>
         </div>
         <Link
           className={styles.link}

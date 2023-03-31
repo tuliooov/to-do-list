@@ -7,7 +7,7 @@ export function DefaultLayout() {
   return (
     <>
       <Header></Header>
-      <div className={styles.layout}>
+      <div className={`${styles.layout} layout`}>
         <Outlet />
       </div>
     </>

@@ -3,10 +3,8 @@
 }
 
 .wrapper {
-  display: flex;
-  gap: .5rem;
-
-  transform: translateY(-50%);
+  position: relative;
+  top: -2rem;
 }
 
 .input { 

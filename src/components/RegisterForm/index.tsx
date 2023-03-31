@@ -60,33 +60,41 @@ export function RegisterForm({  }: NewTaskProps) {
   return (
     <form onSubmit={handleRegister}>
       <div className={styles.main}>
-        <div className={styles.wrapper}>
-          <input 
-            className={styles.input}
-            placeholder="Nome"
-            value={name}
-            required
-            onChange={(event) => setName(event.target.value)} 
-          />
-          <input 
-            className={styles.input}
-            placeholder="Email"
-            type={"email"}
-            value={email}
-            required
-            onChange={(event) => setEmail(event.target.value)} 
-          />
-          <input 
-            className={styles.input}
-            placeholder="Senha"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)} 
-            type="password"
-          />
-          <Button loading={isLoading}>
-            Registrar
-          </Button>
+        <div className={`${styles.wrapper} row`}>
+          <div className='col-3 col-s-12'>
+            <input 
+              className={styles.input}
+              placeholder="Nome"
+              value={name}
+              required
+              onChange={(event) => setName(event.target.value)} 
+            />
+          </div>
+          <div className='col-3 col-s-12'>
+            <input 
+              className={styles.input}
+              placeholder="Email"
+              type={"email"}
+              value={email}
+              required
+              onChange={(event) => setEmail(event.target.value)} 
+            />
+          </div>
+          <div className='col-3 col-s-12'>
+            <input 
+              className={styles.input}
+              placeholder="Senha"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)} 
+              type="password"
+            />
+          </div>
+          <div className='col-3 col-s-12'>
+            <Button loading={isLoading} className="s-w-full w-full">
+              Registrar
+            </Button>
+          </div>
         </div>
         <Link
           className={styles.link}
